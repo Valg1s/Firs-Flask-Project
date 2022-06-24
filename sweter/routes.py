@@ -150,7 +150,6 @@ def ticket():
                  .join(Booking).filter_by(id_of_booking=Booking.id_of_booking)
                  .filter_by(id_of_user=id_of_user)).order_by(
             BookingProduct.id_of_prod_booking.desc()).first()
-    print(order)
     return render_template('ticket.html', order_by=type, order=order)
 
 
@@ -198,7 +197,6 @@ def log_page():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            print("User was login")
             return redirect(url_for('home_page'))
         else:
             flash("Не правильний логін чи пароль ")
