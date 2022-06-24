@@ -1,6 +1,6 @@
 from flask_login import UserMixin
 
-from sweter import db, manager
+from app import db, manager
 
 
 class Medicines(db.Model):
