@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аптека</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <div class="header__wrapper">
+            <div class="container">
+                <header class="header">
+                    <a href="/" class="header__logo">
+                        <img src="{{ url_for('static',filename='images/logo.png') }}" alt="логотип" class="header__logo-img logo-img">
+                    </a>
+                    <h2 class="header__title">
+                        аптека вашого міста
+                    </h2>
+                    <div class="header__connection">
+                       <a href="/login" class="header__connection-signin header__connection-link">Вхід</a>
+                       <a href="/registration" class="header__connection-register header__connection-link">Регістрація</a>
+                       <a href="/logout" class="header__connection-signin header__connection-link">Вихід</a>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <main class="main">
+            <aside class="aside">
+                <nav class="aside__nav">
+                    <ul class="aside__list">
+                        <li class="aside__item">
+                            <a href="/" class="aside__link">Головна</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/med" class="aside__link">Ліки</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/news" class="aside__link">Новини</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Про нас</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Карта аптек</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/cabinet" class="aside__link">Особистий кабінет</a>
+                        </li>
+                    </ul>    
+                </nav>
+            </aside>
+            <section class="main__section section">
+                <div class="section__content buy">
+                    <div class="title__wrapper">
+                        <h2 class="buy__title maim-title">
+                            Забронювати ліки
+                        </h2>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                 </ul>
+                            {% endif %}
+                        {% endwith %}
+                        <h3 class="buy__title title__medicine">
+                            Назва ліків: {{ med.med_name }}
+                        </h3>
+                    </div>
+                    <form class="buy__form" method="POST">
+                        <input class="buy__form-input" name="count_of_med"  placeholder="Кількість товару">
+                        <div>
+                            <select class="booking__form-select" name="pharmacy">
+                                {% for phar in pharmacy %}
+                                <option class="booking__form-option" value="{{phar.id_of_phar}}">Аптека №{{phar.number_of_phar}} : {{phar.adress_of_phar}} </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button class="buy__form-btn">Забронювати</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__connection">
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="/" class="footer__link">Головна</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/med" class="footer__link">Ліки</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/news" class="footer__link">Новини</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Про нас</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Карта аптек</a>
+                            </li>
+                        </ul>    
+                    </div>
+                    <p class="footer__copyright">© copyright, 2022</p>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аптека</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <div class="header__wrapper">
+            <div class="container">
+                <header class="header">
+                    <a href="#" class="header__logo">
+                        <img src="{{ url_for('static',filename='images/logo.png') }}" alt="логотип" class="header__logo-img logo-img">
+                    </a>
+                    <h1 class="header__title">
+                        аптека вашого міста
+                    </h1>
+                    <div class="header__connection">
+                        <a href="/login" class="header__connection-signin header__connection-link">Вхід</a>
+                        <a href="/registration" class="header__connection-register header__connection-link">Регістрація</a>
+                         <a href="/logout" class="header__connection-signin header__connection-link">Вихід</a>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <main class="main">
+            <aside class="aside">
+                <nav class="aside__nav">
+                    <ul class="aside__list">
+                        <li class="aside__item">
+                            <a href="/" class="aside__link">Головна</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/med" class="aside__link">Ліки</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/news" class="aside__link">Новини</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Про нас</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Карта аптек</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/cabinet" class="aside__link">Особистий кабінет</a>
+                        </li>
+                    </ul>    
+                </nav>
+            </aside>
+            <div class="main__section section">
+                <div class="section__content">
+                    <h2 class="section__content__header">Тримаємося разом! Ми – сила, ми переможемо! Слава Україні!</h2>
+                    <p class="section__content__paragraph" > Незважаючи на військовий стан, ми, як і раніше, докладаємо максимум зусиль, щоб забезпечити найбільш актуальну інформацію про режим роботи аптек та доступність товарів. </p>
+                    <p class="section__content__paragraph" > На даний момент доступна доставка поштовими операторами Нова пошта та Укрпошта, власна кур'єрська доставка по Києву та Харкову, а також самовивіз. </p>
+                    <p class="section__content__paragraph" > Вся необхідна Вам інформація про аптечні заклади-партнери доступна в розділі Карта аптек. Карта відображає графік роботи аптек у режимі реального часу. Рекомендуємо перед походом в аптеку перевірити, відкрита аптека зараз, чи ні. </p>
+                    <p class="section__content__paragraph" > Наша команда працює в режимі 24/7, ми намагаємось забезпечити вас усіма необхідними ліками. </p>
+                    <p class="section__content__paragraph" > Бережіть себе та будьте здорові! </p>
+                </div>
+                <div class="section__content">
+                    <h2 class="section__content__header">УВАГА!</h2>
+                    <p class="section__content__paragraph" > Ціни актуальні лише при оформленні замовлення в електронній інформаційній системі Аптека Вашого Міста. Ціни на товари при покупці безпосередньо в аптечних закладах-партнерах можуть відрізнятись від вказаних на сайті! </p>
+
+                </div>
+                <div class="section__content">
+                    <h2 class="section__content__header">Електронна медична інформаційна система АПВ - майже як інтернет-аптека, тільки краще!</h2>
+                    <p class="section__content__paragraph" > Електронна медична інформаційна система АПВ — це пошук медичних товарів широкого асортименту в аптеках вашого міста, низькі ціни на ліки та зручна доставка. Можливо, на перший погляд ми чимось схожі на інтернет-аптеку, але насправді на АПВ ви зможете знайти більше ліків та більше зручних способів отримання замовлення. </p>
+                    <p class="section__content__paragraph" > Отримати своє замовлення ви можете у будь-якій партнерській аптеці у вашому місті – це може бути найближча аптека до вашої роботи чи дому. Або ж ви можете замовити кур'єрську доставку та отримати товари там, де вам зручно, і тоді, коли вам зручно. </p>
+                    <p class="section__content__paragraph" > Усі мед.препарати наших аптек-партнерів мають сертифікати якості, а також зберігаються та перевозяться відповідно до необхідних умов зберігання та транспортування та температурного режиму. Тому ви можете бути впевнені, що замовляєте якісні препарати як оригінали, так і дженерики. </p>
+                    <p class="section__content__paragraph" > Телефонуйте за безкоштовним номером 0800 30 22 44, і ви отримаєте докладну інформацію про наявність ліків в аптеках вашого міста від наших фармацевтів. Ми працюємо для вашого здоров'я! </p>
+                </div>
+                <div class="section__content">
+                    <h2 class="section__content__header">Інтернет-каталог лікарських товарів від Аптеки Вашого Міста</h2>
+                    <p class="section__content__paragraph" > Аптека Вашого Міста - це спеціалізована компанія, що здійснює діяльність з роздрібної та оптової торгівлі лікарськими засобами та товарами медичного призначення, у якої є власний online сервіс, і в якій представлений широкий асортимент лікарських засобів, лікувальної та декоративної косметики, товарів для догляду за шкірою та тілом. вигідним цінам. Аптека АПВ співпрацює з іншими аптечними закладами, завдяки чому замовлення можна отримати у найближчій аптеці. </p>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__connection">
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="/" class="footer__link">Головна</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/med" class="footer__link">Ліки</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/news" class="footer__link">Новини</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Про нас</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Карта аптек</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="footer__copyright">© copyright, 2022</p>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

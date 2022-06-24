@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ua" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін Панель</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <div class="header__wrapper">
+            <div class="container">
+                <header class="header">
+                    <a href="/" class="header__logo">
+                        <img src="{{ url_for('static',filename='images/logo.png') }}" alt="логотип" class="header__logo-img logo-img">
+                    </a>
+                    <h1 class="header__title">
+                        аптека вашого міста
+                    </h1>
+                    <div class="header__connection">
+                         <a href="/logout" class="header__connection-signin header__connection-link">Вихід</a>
+                    </div>
+                </header>
+            </div>
+        </div>
+          <main class="main">
+      <aside class="aside">
+        <nav class="aside__nav">
+          <ul class="aside__list">
+            <li class="aside__item">
+              <a href="{{url_for('admin_main',name='admin',password='admin')}}" class="aside__link">Замовлення</a>
+            </li>
+            <li class="aside__item">
+              <a href="#" class="aside__link">Додати ліки</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <section class="main__section add">
+
+          {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                 </ul>
+                            {% endif %}
+                        {% endwith %}
+
+          <form class="add__form" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label class="add__name" for="name">Назва</label>
+                        <input class="registr__form-input" name="name" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="count">Кількість</label>
+                        <input class="registr__form-input" name="count" type="number">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="form_of_prod">Форма виробництва</label>
+                        <input class="registr__form-input" name="form_of_prod" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="manufacturer_name">Назва виробника</label>
+                        <input class="registr__form-input" name="manufacturer_name" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="country_of_manufacturer">Країна виробника</label>
+                        <input class="registr__form-input" name="country_of_manufacturer" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="price">Ціна</label>
+                        <input class="registr__form-input" name="price" type="number">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="name_category">Назва категорії</label>
+                        <input class="registr__form-input" name="name_category" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="active_substance">Діюча речовина</label>
+                        <input class="registr__form-input" name="active_substance" type="text">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="volume_active_substance">Об'єм діючої речовини</label>
+                        <input class="registr__form-input" name="volume_active_substance" type="number">
+                    </div>
+
+                    <div>
+                        <label class="add__name" for="volume">Об'єм</label>
+                        <input class="registr__form-input" name="volume" type="number">
+                    </div>
+                    <div>
+                        <label class="add__name" for="photo">Фото</label>
+                        <input class="registr__form-input" name="photo" type="file">
+                    </div>
+                    <button class="header__connection-signin header__connection-link" type="submit">Добавити</button>
+                </form>
+            </section>
+</body>
+</main>

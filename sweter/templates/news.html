@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аптека</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <div class="header__wrapper">
+            <div class="container">
+                <header class="header">
+                     <a href="/" class="header__logo">
+                         <img src="{{ url_for('static',filename='images/logo.png') }}" alt="логотип" class="header__logo-img logo-img">
+                    </a>
+                    <h2 class="header__title">
+                        аптека вашого міста
+                    </h2>
+                    <div class="header__connection">
+                        <a href="/login" class="header__connection-signin header__connection-link">Вхід</a>
+                        <a href="/registration" class="header__connection-register header__connection-link">Регістрація</a>
+                        <a href="/logout" class="header__connection-signin header__connection-link">Вихід</a>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <main class="main">
+            <aside class="aside">
+                <nav class="aside__nav">
+                    <ul class="aside__list">
+                        <li class="aside__item">
+                            <a href="/" class="aside__link">Головна</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/med" class="aside__link">Ліки</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="#" class="aside__link">Новини</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Про нас</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/repair" class="aside__link">Карта аптек</a>
+                        </li>
+                        <li class="aside__item">
+                            <a href="/cabinet" class="aside__link">Особистий кабінет</a>
+                        </li>
+                    </ul>    
+                </nav>
+            </aside>
+            <section class="main__section news section__news">
+                <h1 class="news__title">Новини</h1>
+                <div class="news__boxes">
+                    <div class="news__box">
+                        <h3 class="news__box-title">
+                            VIZIT
+                        </h3>
+                         <p class="news__box-descr">Неважно,короткие или длинные,главное не с дедом во дворе</p>
+                        <img src="{{ url_for('static',filename='images/1.jpg') }}" alt="" class="news__box-img" width="300px">
+                    </div>
+                    <div class="news__box">
+                        <h3 class="news__box-title">
+                            VIZIT
+                        </h3>
+                        <p class="news__box-descr">Береги свой калькулятор, когда решаешь задачи с многочленами</p>
+                        <img src="{{ url_for('static',filename='images/2.jpg') }}" alt="" class="news__box-img" width="300px">
+                    </div>
+                    <div class="news__box">
+                        <h3 class="news__box-title">
+                            VIZIT
+                        </h3>
+                         <p class="news__box-descr">Для твоего CumASS`a</p>
+                        <img src="{{ url_for('static',filename='images/3.jpg') }}" alt="" class="news__box-img" width="300px">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__connection">
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="/" class="footer__link">Головна</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/med" class="footer__link">Ліки</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/news" class="footer__link">Новини</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Про нас</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="/repair" class="footer__link">Карта аптек</a>
+                            </li>
+                        </ul>    
+                    </div>
+                    <p class="footer__copyright">© copyright, 2022</p>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ua" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін Панель</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <div class="header__wrapper">
+            <div class="container">
+                <header class="header">
+                    <a href="#" class="header__logo">
+                        <img src="{{ url_for('static',filename='images/logo.png') }}" alt="логотип" class="header__logo-img logo-img">
+                    </a>
+                    <h1 class="header__title">
+                        аптека вашого міста
+                    </h1>
+                    <div class="header__connection">
+                         <a href="/logout" class="header__connection-signin header__connection-link">Вихід</a>
+                    </div>
+                </header>
+            </div>
+        </div>
+          <main class="main">
+      <aside class="aside">
+        <nav class="aside__nav">
+          <ul class="aside__list">
+            <li class="aside__item">
+              <a href="main/admin:admin/" class="aside__link">Замовлення</a>
+            </li>
+            <li class="aside__item">
+              <a href="{{url_for('admin_add_med',name='admin',password='admin')}}" class="aside__link">Додати ліки</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+              <div class="acc__block">
+              <h3 class="acc__title-table">
+            Замовлення
+          </h3>
+
+          <table class="acc__table table">
+            <tr>
+              <td class="table__title">Номер замовлення</td>
+              <td class="table__title">Ід користувача</td>
+              <td class="table__title">Дата</td>
+              <td class="table__title">Назва товару</td>
+              <td class="table__title">Кількість</td>
+              <td class="table__title">Ціна</td>
+            </tr>
+            {% for order in orders_buy %}
+              <tr>
+                <td>{{order[0].id_of_prod_sales}}</td>
+                <td>{{order[1].id_of_user}}</td>
+                <td>{{order[1].date}}</td>
+                <td>{{order[2].med_name}}</td>
+                <td>{{order[0].amount}}</td>
+                <td>{{order[0].price}} грн</td>
+                <td>
+                    <a href="/main/admin:admin?id={{order[0].id_of_prod_sales}}&command=delete_sales" class="header__connection-signin header__connection-link">Видалити</a>
+                </td>
+              </tr>
+              {% endfor %}
+          </table>
+            <div class="acc__block">
+            <h3 class="acc__title-table">
+            Бронювання
+          </h3>
+
+          <table class="acc__table table">
+            <tr>
+              <td class="table__title">Номер замовлення</td>
+              <td class="table__title">Ід користувача</td>
+              <td class="table__title">Дата</td>
+              <td class="table__title">Назва товару</td>
+              <td class="table__title">Кількість</td>
+              <td class="table__title">Ціна</td>
+              <td class="table__title">Статус</td>
+            </tr>
+            {% for order in orders_booking %}
+              <tr>
+                <td>{{order[0].id_of_prod_booking}}</td>
+                <td>{{order[1].id_of_user}}</td>
+                <td>{{order[1].date}}</td>
+                <td>{{order[2].med_name}}</td>
+                <td>{{order[0].amount}}</td>
+                <td>Аптека№ {{order[3].number_of_phar}}:{{order[3].adress_of_phar}}</td>
+                <td>{{order[1].status}}</td>
+                <td>
+                    <a href="/main/admin:admin?id={{order[0].id_of_prod_booking}}&command=delete_booking" class="header__connection-signin header__connection-link">Видалити</a>
+                </td>
+                <td>
+                  <a href="/main/admin:admin?id={{order[0].id_of_prod_booking}}&command=change_status" class="header__connection-signin header__connection-link">Змінити статус</a>
+                </td>>
+              </tr>
+              {% endfor %}
+          </table>
+            </div>
+          </div>
+    </div>
+</main>
+</body>
+</html>
