@@ -1,4 +1,4 @@
-from app import db
+from sweter import db
 
 from sweter.models import Medicines, Manufacturer, Category, Pharmacy
 

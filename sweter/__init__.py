@@ -1,4 +1,3 @@
-
 import os
 
 from flask import Flask
@@ -21,7 +20,4 @@ db = SQLAlchemy(app)
 manager = LoginManager(app)
 manager.login_view = 'log_page'
 
-app.run(debug=True, use_reloader=True)
-
-from . import routes , models
-
+from sweter import routes , models

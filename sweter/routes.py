@@ -6,7 +6,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from PIL import Image
 
-from app import app, db
+from sweter import app, db
 from sweter.models import User, Medicines, Manufacturer, Sales, SalesProduct, Pharmacy, Booking, BookingProduct, \
     Category
 
